@@ -14,7 +14,7 @@ export default function Header(props) {
         The ultimate organisation tool for you and your family.
       </p>
       <div className="buttonDiv center">
-        <a className="button" href="">
+        <a className="button" href="#">
           Shop Tags
         </a>
       </div>
