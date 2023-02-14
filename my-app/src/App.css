@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;700&family=Varela+Round&display=swap");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.center {
+  text-align: center;
+}
+
+.banner p {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  margin: 0;
+  padding: 5px;
+}
+
+.section-width-standard {
+  max-width: 1200px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heroImage {
+  display: block;
+  padding: 150px;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center top;
+  text-align: center;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(137, 67, 91, 0.3),
+      rgba(28, 27, 30, 0.2)
+    ),
+    var(--img);
+  background-size: cover;
+}
+
+.heading {
+  text-align: left;
+  margin: 0;
+  font-size: 40px;
+  color: white;
+  padding-top: 100px;
+  font-family: "Varela Round", sans-serif;
+}
+
+.description {
+  text-align: left;
+  margin: 0;
+  color: white;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
