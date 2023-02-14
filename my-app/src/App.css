@@ -6,6 +6,11 @@ html {
   padding: 0;
 }
 
+.marginNavBar {
+  margin: 0;
+  line-height: 1;
+}
+
 .center {
   text-align: center;
 }
@@ -28,15 +33,25 @@ html {
 .navigation {
   display: flex;
   justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.logoText {
+  font-family: "League Spartan", sans-serif;
+  font-size: 30px;
+}
+
+.cartIcon:hover {
+  cursor: pointer;
 }
 
 .heroImage {
-  display: block;
-  padding: 150px;
+  /* display: block; */
+  padding: 180px 100px;
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background-position: center top;
-  text-align: center;
   background-image: linear-gradient(
       to bottom,
       rgba(137, 67, 91, 0.3),
@@ -51,7 +66,7 @@ html {
   margin: 0;
   font-size: 40px;
   color: white;
-  padding-top: 100px;
+  padding-top: 120px;
   font-family: "Varela Round", sans-serif;
 }
 
@@ -61,5 +76,40 @@ html {
   color: white;
   font-size: 20px;
   padding-top: 10px;
-  padding-bottom: 50px;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  background-color: black;
+  border: black;
+  padding: 7px 20px;
+  border-radius: 5px;
+  color: white;
+  margin-top: 20px;
+  width: 200px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: linear-gradient(to bottom, #000000, #333333);
+}
+.material-symbols-rounded {
+  font-variation-settings: "FILL" 100, "wght" 300, "GRAD" 0, "opsz" 48;
+  font-size: 30px;
+}
+
+.expand {
+  vertical-align: middle;
+  font-size: 35px;
+  transition: all 150ms ease-in-out;
+}
+
+.expand:hover {
+  transform: rotate(180deg);
+  cursor: pointer;
 }

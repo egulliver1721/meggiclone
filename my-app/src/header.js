@@ -13,6 +13,11 @@ export default function Header(props) {
       <p className="description">
         The ultimate organisation tool for you and your family.
       </p>
+      <div className="buttonDiv center">
+        <a className="button" href="">
+          Shop Tags
+        </a>
+      </div>
     </div>
   );
 }
