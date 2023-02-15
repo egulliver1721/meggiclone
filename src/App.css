@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;700&family=Varela+Round&display=swap");
 
+root {
+  --main-font: "League Spartan", sans-serif;
+  --second-font: "Varela Round", sans-serif;
+}
+
 body,
 html {
   margin: 0;
@@ -18,7 +23,7 @@ html {
 .banner p {
   background-color: rgb(0, 0, 0);
   color: white;
-  font-family: "Varela Round", sans-serif;
+  font-family: var(--second-font);
   margin: 0;
   padding: 5px;
 }
@@ -48,7 +53,7 @@ html {
 
 .heroImage {
   /* display: block; */
-  padding: 180px 100px;
+  padding: 200px 100px;
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background-position: center top;
@@ -66,8 +71,9 @@ html {
   margin: 0;
   font-size: 40px;
   color: white;
-  padding-top: 120px;
-  font-family: "Varela Round", sans-serif;
+  padding-top: 60px;
+  font-family: var(--second-font);
+  text-shadow: 1px 1px 1px rgba(36, 36, 36, 0.8);
 }
 
 .description {
@@ -112,4 +118,129 @@ html {
 .expand:hover {
   transform: rotate(180deg);
   cursor: pointer;
+}
+
+/* product section */
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* left column */
+.leftColumn {
+  position: relative;
+  width: 65%;
+}
+
+.leftColumn img {
+  width: 100%;
+  max-width: 700px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.leftColumn img.active {
+  opacity: 1;
+}
+/* right column */
+
+.rightColumn {
+  width: 35%;
+}
+
+/* product description */
+
+.productDescription {
+  border-bottom: 1px solid rgb(204, 197, 197);
+  margin-bottom: 20px;
+}
+
+.productDescription h1 {
+  font-weight: 600;
+  font-family: var(--main-font);
+}
+
+.productDescription p {
+  font-weight: 400;
+  font-family: var(--main-font);
+  color: rgb(96, 94, 94);
+}
+
+/* product pattern */
+
+.product-color {
+  margin-bottom: 30px;
+}
+
+.colorChoose div {
+  display: inline-block;
+}
+
+.colorChoose input[type="radio"] {
+  display: none;
+}
+
+.colorChoose input[type="radio"] + label span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 20px 10px 20px 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+}
+
+.colorChoose input[type="radio"]#rainbow + label span {
+  background-image: url(./images/rainbowPattern.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+}
+
+.colorChoose input[type="radio"]#wildAnimal + label span {
+  background-image: url(./images/wildAnimalPattern.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+}
+
+.colorChoose input[type="radio"]#pink + label span {
+  background-image: url(./images/pinkPattern.png);
+  background-color: #efd5d3;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+}
+
+.colorChoose input[type="radio"]#blue + label span {
+  background-image: url(./images/bluePattern.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+}
+
+.colorChoose input[type="radio"]:checked + label span {
+  background-image: url(./images/tick100.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* media queries */
+
+@media (max-width: 600px) {
+  .heading {
+    padding-top: 0;
+  }
+
+  .heroImage {
+    padding: 80px;
+  }
 }

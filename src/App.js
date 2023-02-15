@@ -2,6 +2,7 @@ import "./App.css";
 import heroImage from "./meggicover.jpg";
 import Header from "./header.js";
 import Navigation from "./navigation.js";
+import Product from "./product.js";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <div className="heroContainer">
         <Header heroImage={heroImage} />
       </div>
+      <Product />
     </div>
   );
 }
