@@ -10,25 +10,25 @@ export default function Product() {
       <div className="productImage leftColumn">
         <img
           src={rainbowTag}
-          alt="picture of meggi nappy bag tag with rainbow pattern"
+          alt="meggi nappy bag tag with rainbow pattern"
           className="image active"
           data-image="rainbow"
         />
         <img
           src={wildAnimalTag}
-          alt="picture of meggi nappy bag tag with animal pattern"
+          alt="meggi nappy bag tag with animal pattern"
           className="image"
           data-image="wildAnimal"
         />
         <img
           src={pinkTag}
-          alt="picture of meggi nappy bag tag with pink pattern"
+          alt="meggi nappy bag tag with pink pattern"
           className="image"
           data-image="pink"
         />
         <img
           src={blueTag}
-          alt="picture of meggi nappy bag tag with blue pattern"
+          alt="meggi nappy bag tag with blue pattern"
           className="image"
           data-image="blue"
         />
