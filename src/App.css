@@ -229,10 +229,40 @@ html {
 }
 
 .colorChoose input[type="radio"]:checked + label span {
-  background-image: url(./images/tick100.png);
-  background-repeat: no-repeat;
-  background-position: center;
+  border: 3px solid rgb(132, 128, 128);
 }
+
+/* product price */
+
+.productPrice {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.productPrice span {
+  font-size: 20px;
+  font-family: var(--main-font);
+  margin-right: 20px;
+}
+
+.cartBtn {
+  display: inline-block;
+  color: white;
+  background: black;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: var(--main-font);
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: all 150ms ease-in-out;
+}
+
+.cartBtn:hover {
+  background: rgb(112, 59, 59);
+  cursor: pointer;
+}
+
 /* media queries */
 
 @media (max-width: 600px) {

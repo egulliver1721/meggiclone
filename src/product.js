@@ -102,7 +102,7 @@ export default function Product() {
         </div>
         {/* product pricing */}
         <div className="productPrice">
-          $14.00 AUD
+          <span>$14.00 AUD</span>
           <a href="#" className="cartBtn">
             Add to cart
           </a>
