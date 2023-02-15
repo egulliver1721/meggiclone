@@ -10,25 +10,25 @@ export default function ProductImage(props) {
       <img
         src={rainbowTag}
         alt="meggi nappy bag tag with rainbow pattern"
-        className={props.tagPattern === "rainbowTag" ? "active" : ""}
+        className={props.pattern === "rainbowTag" ? "active" : ""}
         data-image="rainbowTag"
       />
       <img
         src={wildAnimalTag}
         alt="meggi nappy bag tag with animal pattern"
-        className={props.tagPattern === "wildAnimalTag" ? "active" : ""}
+        className={props.pattern === "wildAnimalTag" ? "active" : ""}
         data-image="wildAnimalTag"
       />
       <img
         src={pinkTag}
         alt="meggi nappy bag tag with pink pattern"
-        className={props.tagPattern === "pinkTag" ? "active" : ""}
+        className={props.pattern === "pinkTag" ? "active" : ""}
         data-image="pinkTag"
       />
       <img
         src={blueTag}
         alt="meggi nappy bag tag with blue pattern"
-        className={props.tagPattern === "blueTag" ? "active" : ""}
+        className={props.pattern === "blueTag" ? "active" : ""}
         data-image="blueTag"
       />
     </div>

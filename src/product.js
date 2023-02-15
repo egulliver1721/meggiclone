@@ -3,7 +3,7 @@ import ProductImage from "./productImage.js";
 import ProductConfiguration from "./productConfig.js";
 
 export default function Product() {
-  const [tagPattern, setTagPattern] = React.useState("");
+  const [tagPattern, setTagPattern] = React.useState("rainbowTag");
 
   function onPatternClick(e) {
     e.preventDefault();

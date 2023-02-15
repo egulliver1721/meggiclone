@@ -127,7 +127,8 @@ html {
   max-width: 1200px;
   margin: 0 auto;
   padding: 15px;
-  margin-top: 40px;
+  margin-top: 60px;
+  margin-bottom: 260px;
 }
 
 /* left column */
@@ -143,7 +144,7 @@ html {
   left: 0;
   top: 0;
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 10ms ease-in-out;
 }
 
 .leftColumn img.active {
@@ -228,7 +229,7 @@ html {
   background-position: bottom;
 }
 
-.colorChoose input[type="radio"]:checked + label span {
+.colorChoose input[type="radio"] + label .activeInput {
   border: 3px solid rgb(132, 128, 128);
 }
 
