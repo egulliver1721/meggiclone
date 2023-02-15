@@ -3,9 +3,18 @@ import ProductImage from "./productImage.js";
 import ProductConfiguration from "./productConfig.js";
 
 export default function Product() {
+  const [tagPattern, setTagPattern] = React.useState("");
+
+  function onPatternClick(e) {
+    e.preventDefault();
+    let pattern = e.target.getAttribute("data-image");
+    console.log(pattern);
+    setTagPattern(pattern);
+  }
+
   return (
     <main className="container">
-      <ProductImage />
+      <ProductImage pattern={tagPattern} />
       {/* product description */}
       <div className="rightColumn">
         <div className="productDescription">
@@ -15,7 +24,10 @@ export default function Product() {
             children.
           </p>
         </div>
-        <ProductConfiguration />
+        <ProductConfiguration
+          pattern={tagPattern}
+          onPatternClick={onPatternClick}
+        />
         {/* product pricing */}
         <div className="productPrice">
           <span>$14.00 AUD</span>

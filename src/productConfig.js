@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ProductConfiguration() {
+export default function ProductConfiguration(props) {
   return (
     <div className="productCongifuration">
       <div className="productPattern">
@@ -9,11 +9,11 @@ export default function ProductConfiguration() {
           <div>
             <input
               type="radio"
-              data-image="rainbow"
-              name="pattern"
+              data-image="rainbowTag"
+              name={props.pattern}
               id="rainbow"
               value="rainbow"
-              checked
+              onChange={props.onPatternClick}
             />
             <label htmlFor="rainbow">
               <span></span>
@@ -22,10 +22,11 @@ export default function ProductConfiguration() {
           <div>
             <input
               type="radio"
-              data-image="wildAnimal"
-              name="pattern"
+              data-image="wildAnimalTag"
+              name={props.pattern}
               id="wildAnimal"
               value="wildAnimal"
+              onChange={props.onPatternClick}
             />
             <label htmlFor="wildAnimal">
               <span></span>
@@ -34,10 +35,11 @@ export default function ProductConfiguration() {
           <div>
             <input
               type="radio"
-              data-image="pink"
-              name="pattern"
+              data-image="pinkTag"
+              name={props.pattern}
               id="pink"
               value="pink"
+              onChange={props.onPatternClick}
             />
             <label htmlFor="pink">
               <span></span>
@@ -46,10 +48,11 @@ export default function ProductConfiguration() {
           <div>
             <input
               type="radio"
-              data-image="blue"
-              name="pattern"
+              data-image="blueTag"
+              name={props.pattern}
               id="blue"
               value="blue"
+              onChange={props.onPatternClick}
             />
             <label htmlFor="blue">
               <span></span>
