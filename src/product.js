@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductImage from "./productImage.js";
 import ProductConfiguration from "./productConfig.js";
 
 export default function Product() {
   const [tagPattern, setTagPattern] = React.useState("rainbowTag");
+  const [cartItems, setCartItems] = React.useState([]);
 
   function onPatternClick(e) {
     e.preventDefault();
-    let pattern = e.target.getAttribute("data-image");
-    console.log(pattern);
-    setTagPattern(pattern);
+    setTagPattern((prevPattern) => e.target.getAttribute("data-image"));
   }
+
+  useEffect(() => {
+    console.log(tagPattern);
+  }, [tagPattern]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setCartItems([...cartItems, tagPattern]);
+  };
+
+  useEffect(() => {
+    console.log(cartItems);
+  }, [cartItems]);
 
   return (
     <main className="container">
@@ -27,14 +39,8 @@ export default function Product() {
         <ProductConfiguration
           pattern={tagPattern}
           onPatternClick={onPatternClick}
+          handleSubmit={handleSubmit}
         />
-        {/* product pricing */}
-        <div className="productPrice">
-          <span>$14.00 AUD</span>
-          <a href="www.google.com" className="cartBtn">
-            Add to cart
-          </a>
-        </div>
       </div>
     </main>
   );

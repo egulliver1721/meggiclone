@@ -5,14 +5,14 @@ export default function ProductConfiguration(props) {
     <div className="productCongifuration">
       <div className="productPattern">
         <span>Pattern</span>
-        <div className="colorChoose">
+        <form className="colorChoose" onSubmit={props.handleSubmit}>
           <div>
             <input
               type="radio"
               data-image="rainbowTag"
-              name={props.pattern}
+              name="pattern"
               id="rainbow"
-              value="rainbow"
+              value={props.pattern}
               onChange={props.onPatternClick}
             />
             <label htmlFor="rainbow">
@@ -25,9 +25,9 @@ export default function ProductConfiguration(props) {
             <input
               type="radio"
               data-image="wildAnimalTag"
-              name={props.pattern}
+              name="pattern"
               id="wildAnimal"
-              value="wildAnimal"
+              value={props.pattern}
               onChange={props.onPatternClick}
             />
             <label htmlFor="wildAnimal">
@@ -42,9 +42,9 @@ export default function ProductConfiguration(props) {
             <input
               type="radio"
               data-image="pinkTag"
-              name={props.pattern}
+              name="pattern"
               id="pink"
-              value="pink"
+              value={props.pattern}
               onChange={props.onPatternClick}
             />
             <label htmlFor="pink">
@@ -57,9 +57,9 @@ export default function ProductConfiguration(props) {
             <input
               type="radio"
               data-image="blueTag"
-              name={props.pattern}
+              name="pattern"
               id="blue"
-              value="blue"
+              value={props.pattern}
               onChange={props.onPatternClick}
             />
             <label htmlFor="blue">
@@ -68,7 +68,18 @@ export default function ProductConfiguration(props) {
               ></span>
             </label>
           </div>
-        </div>
+          {/* product pricing */}
+          <div className="productPrice">
+            <span>$14.00 AUD</span>
+            <button
+              className="cartBtn"
+              type="submit"
+              onSubmit={props.handleSubmit}
+            >
+              Add to cart
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

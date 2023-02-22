@@ -40,6 +40,7 @@ html {
   justify-content: space-between;
   padding-top: 25px;
   padding-bottom: 25px;
+  position: relative;
 }
 
 .logoText {
@@ -47,10 +48,43 @@ html {
   font-size: 30px;
 }
 
+.cartIcon {
+  position: relative;
+  margin-right: 5px;
+}
+
 .cartIcon:hover {
   cursor: pointer;
 }
 
+/* cart dropdown */
+
+.cartDropdown {
+  width: 380px;
+  height: 480px;
+  position: absolute;
+  background-color: white;
+  right: 0px;
+  top: 70px;
+  border: 1px solid purple;
+}
+
+/* items in cart number */
+
+.itemsInCart {
+  border-radius: 50%;
+  padding: 3px 6px;
+  background: purple;
+  color: white;
+  font-size: x-small;
+  font-family: sans-serif;
+  position: absolute;
+  text-align: center;
+  right: -10px;
+  top: -3px;
+}
+
+/* hero section */
 .heroImage {
   /* display: block; */
   padding: 200px 100px;
@@ -257,6 +291,8 @@ html {
   text-decoration: none;
   padding: 5px 10px;
   transition: all 150ms ease-in-out;
+  border-width: 0;
+  border-style: none;
 }
 
 .cartBtn:hover {
