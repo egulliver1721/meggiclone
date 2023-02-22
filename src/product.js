@@ -1,32 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ProductImage from "./productImage.js";
 import ProductConfiguration from "./productConfig.js";
 
-export default function Product() {
-  const [tagPattern, setTagPattern] = React.useState("rainbowTag");
-  const [cartItems, setCartItems] = React.useState([]);
-
-  function onPatternClick(e) {
-    e.preventDefault();
-    setTagPattern((prevPattern) => e.target.getAttribute("data-image"));
-  }
-
-  useEffect(() => {
-    console.log(tagPattern);
-  }, [tagPattern]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setCartItems([...cartItems, tagPattern]);
-  };
-
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
+export default function Product(props) {
+  const { onPatternClick, handleSubmit, pattern } = props;
 
   return (
     <main className="container">
-      <ProductImage pattern={tagPattern} />
+      <ProductImage pattern={pattern} />
       {/* product description */}
       <div className="rightColumn">
         <div className="productDescription">
@@ -37,7 +18,7 @@ export default function Product() {
           </p>
         </div>
         <ProductConfiguration
-          pattern={tagPattern}
+          pattern={pattern}
           onPatternClick={onPatternClick}
           handleSubmit={handleSubmit}
         />
