@@ -1,19 +1,53 @@
 import React from "react";
+import rainbowThumbnail from "./images/rainbowThumbnail.png";
+import blueThumbnail from "./images/blueThumbnail.png";
+import pinkThumbnail from "./images/pinkThumbnail.png";
+import wildAnimalThumbnail from "./images/wildAnimalThumbnail.png";
 
 export default function Navigation(props) {
+  const tagData = [
+    {
+      pattern: "rainbowTag",
+      thumbnail: rainbowThumbnail,
+      price: "13.20",
+    },
+    {
+      pattern: "blueTag",
+      thumbnail: blueThumbnail,
+      price: "13.20",
+    },
+    {
+      pattern: "pinkTag",
+      thumbnail: pinkThumbnail,
+      price: "13.20",
+    },
+    {
+      pattern: "wildAnimalTag",
+      thumbnail: wildAnimalThumbnail,
+      price: "13.20",
+    },
+  ];
+
   const { cartItems } = props;
   const numberOfCartItems = cartItems.length;
   const [isCartOpen, setCartOpen] = React.useState(false);
 
-  // map over the cartItems array
-  // display each item in the array
-  // with the html
-  // inject the individual item in cartItems
-  // display the data-image attribute text
-  // if no items in cart display "your cart is empty"
+  const filteredTagData = tagData.filter((tag) =>
+    cartItems.includes(tag.pattern)
+  );
+  console.log(filteredTagData);
 
-  const itemsInCart = cartItems.map((item, index) => {
-    return <li key={index}> {item}</li>;
+  const itemsInCart = filteredTagData.map((item, index) => {
+    return (
+      <div key={index}>
+        {" "}
+        <div>{item.pattern}</div>
+        <div>
+          {item.price}
+          <img className="cartItemThumbnail" src={item.thumbnail} alt="" />
+        </div>
+      </div>
+    );
   });
 
   function openCartDropdown() {
@@ -40,7 +74,7 @@ export default function Navigation(props) {
         className="cartDropdown"
         style={isCartOpen ? { display: "block" } : { display: "none" }}
       >
-        <ul>{itemsInCart}</ul>
+        <div>{itemsInCart}</div>
       </div>
     </nav>
   );

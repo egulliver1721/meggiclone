@@ -84,6 +84,12 @@ html {
   top: -3px;
 }
 
+.cartItemThumbnail {
+  width: 100%;
+  display: block;
+  background: black;
+}
+
 /* hero section */
 .heroImage {
   /* display: block; */

@@ -3,7 +3,7 @@ import blueThumbnail from "./images/blueThumbnail.png";
 import pinkThumbnail from "./images/pinkThumbnail.png";
 import wildAnimalThumbnail from "./images/wildAnimalThumbnail.png";
 
-export const tagData = [
+const tagData = [
   {
     pattern: "rainbowTag",
     thumbnail: { rainbowThumbnail },
@@ -12,13 +12,18 @@ export const tagData = [
   {
     pattern: "blueTag",
     thumbnail: { blueThumbnail },
+    price: "13.20",
   },
   {
     pattern: "pinkTag",
     thumbnail: { pinkThumbnail },
+    price: "13.20",
   },
   {
     pattern: "wildAnimalTag",
     thumbnail: { wildAnimalThumbnail },
+    price: "13.20",
   },
 ];
+
+export default tagData;
