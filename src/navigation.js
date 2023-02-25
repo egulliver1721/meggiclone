@@ -3,26 +3,31 @@ import rainbowThumbnail from "./images/rainbowThumbnail.png";
 import blueThumbnail from "./images/blueThumbnail.png";
 import pinkThumbnail from "./images/pinkThumbnail.png";
 import wildAnimalThumbnail from "./images/wildAnimalThumbnail.png";
+import CartDropdown from "./cartDropdown.js";
 
 export default function Navigation(props) {
   const tagData = [
     {
       pattern: "rainbowTag",
+      itemName: "Rainbow Tag",
       thumbnail: rainbowThumbnail,
       price: "13.20",
     },
     {
       pattern: "blueTag",
+      itemName: "Blue Floral Tag",
       thumbnail: blueThumbnail,
       price: "13.20",
     },
     {
       pattern: "pinkTag",
+      itemName: "Pink Floral Tag",
       thumbnail: pinkThumbnail,
       price: "13.20",
     },
     {
       pattern: "wildAnimalTag",
+      itemName: "Wild Animal Tag",
       thumbnail: wildAnimalThumbnail,
       price: "13.20",
     },
@@ -36,19 +41,6 @@ export default function Navigation(props) {
     cartItems.includes(tag.pattern)
   );
   console.log(filteredTagData);
-
-  const itemsInCart = filteredTagData.map((item, index) => {
-    return (
-      <div key={index}>
-        {" "}
-        <div>{item.pattern}</div>
-        <div>
-          {item.price}
-          <img className="cartItemThumbnail" src={item.thumbnail} alt="" />
-        </div>
-      </div>
-    );
-  });
 
   function openCartDropdown() {
     setCartOpen(!isCartOpen);
@@ -70,12 +62,7 @@ export default function Navigation(props) {
           <span className="itemsInCart">{numberOfCartItems}</span>
         )}
       </span>
-      <div
-        className="cartDropdown"
-        style={isCartOpen ? { display: "block" } : { display: "none" }}
-      >
-        <div>{itemsInCart}</div>
-      </div>
+      <CartDropdown isCartOpen={isCartOpen} filteredTagData={filteredTagData} />
     </nav>
   );
 }
