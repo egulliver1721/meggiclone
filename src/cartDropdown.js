@@ -35,6 +35,10 @@ export default function CartDropdown(props) {
       style={props.isCartOpen ? { display: "block" } : { display: "none" }}
     >
       <div>{itemsInCart}</div>
+      <div className="cartTotalContainer">
+        <div className="cartTotalWord">Sub-total:</div>
+        <div className="cartTotal">$52.60</div>
+      </div>
     </div>
   );
 }

@@ -61,12 +61,14 @@ html {
 
 .cartDropdown {
   width: 380px;
-  height: 510px;
+  height: 530px;
   position: absolute;
   background-color: white;
   right: 0px;
   top: 70px;
-  border: 1px solid purple;
+  box-shadow: rgb(0 0 0 / 15%) 0px 0px 0.75rem 0px;
+  border-radius: 2px;
+  z-index: 9;
 }
 
 .cartItemContainer {
@@ -148,6 +150,26 @@ html {
 
 .cartItemRemove:hover {
   cursor: pointer;
+}
+/* cart subtotal */
+
+.cartTotalContainer {
+  margin: 20px 20px;
+  border-top: 2px solid rgba(128, 128, 128, 0.623);
+  border-bottom: 2px solid rgba(128, 128, 128, 0.623);
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  gap: 10px;
+  padding: 10px;
+}
+
+.cartTotalWord {
+  color: grey;
+  font-size: 18px;
+}
+.cartTotal {
+  font-size: 20px;
+  font-weight: 700;
 }
 
 /* items in cart number */
