@@ -20,7 +20,10 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setCartItems([...cartItems, tagPattern]);
+    const exists = cartItems.includes(tagPattern);
+    if (!exists) {
+      setCartItems([...cartItems, tagPattern]);
+    }
   };
 
   useEffect(() => {

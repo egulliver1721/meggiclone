@@ -37,6 +37,12 @@ export default function Navigation(props) {
   const numberOfCartItems = cartItems.length;
   const [isCartOpen, setCartOpen] = React.useState(false);
 
+  // increase and decrease quantity of item
+  // add an additional property to cartItem array
+  // ...spread in the exisiting array but add the property of quantity: ""
+  // ---
+  // only add items to array from the "Add to cart btn" if they aren't already in the array
+
   const filteredTagData = tagData.filter((tag) =>
     cartItems.includes(tag.pattern)
   );
