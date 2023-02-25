@@ -13,9 +13,18 @@ export default function CartDropdown(props) {
         </div>
         <div className="cartItemDetails">
           <div className="cartItemName">{item.itemName}</div>
-          <div className="cartItemQuantity">Qty: 1</div>
+          <div className="cartItemQtyContainer">
+            <span className="cartItemQuantity">
+              <button className="cartQtyBtn">-</button>
+              <span className="cartQty"> 1 </span>
+              <button className="cartQtyBtn">+</button>
+            </span>
+          </div>
         </div>
         <div className="cartItemPrice">${item.price}</div>
+        <div className="cartItemRemoveContainer">
+          <button className="cartItemRemove">x</button>
+        </div>
       </div>
     );
   });
