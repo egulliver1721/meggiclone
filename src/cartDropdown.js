@@ -15,9 +15,16 @@ export default function CartDropdown(props) {
           <div className="cartItemName">{item.itemName}</div>
           <div className="cartItemQtyContainer">
             <span className="cartItemQuantity">
-              <button className="cartQtyBtn">-</button>
-              <span className="cartQty"> 1 </span>
-              <button className="cartQtyBtn">+</button>
+              <button className="cartQtyBtn" onClick={handleDecrement}>
+                -
+              </button>
+              <span className="cartQty"> {item.quantity} </span>
+              <button
+                className="cartQtyBtn"
+                onClick={() => props.increment(item.pattern)}
+              >
+                +
+              </button>
             </span>
           </div>
         </div>
@@ -28,6 +35,10 @@ export default function CartDropdown(props) {
       </div>
     );
   });
+
+  function handleDecrement() {
+    console.log("decrease");
+  }
 
   return (
     <div

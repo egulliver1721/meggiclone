@@ -14,9 +14,9 @@ function App() {
     setTagPattern((prevPattern) => e.target.getAttribute("data-image"));
   }
 
-  useEffect(() => {
-    console.log(tagPattern);
-  }, [tagPattern]);
+  // useEffect(() => {
+  //   console.log(tagPattern);
+  // }, [tagPattern]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,9 +26,9 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
+  // useEffect(() => {
+  //   console.log(cartItems);
+  // }, [cartItems]);
 
   return (
     <div className="App">

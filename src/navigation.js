@@ -1,55 +1,69 @@
-import React from "react";
+import React, { useEffect } from "react";
 import rainbowThumbnail from "./images/rainbowThumbnail.png";
 import blueThumbnail from "./images/blueThumbnail.png";
 import pinkThumbnail from "./images/pinkThumbnail.png";
 import wildAnimalThumbnail from "./images/wildAnimalThumbnail.png";
 import CartDropdown from "./cartDropdown.js";
 
-export default function Navigation(props) {
-  const tagData = [
-    {
-      pattern: "rainbowTag",
-      itemName: "Rainbow Tag",
-      thumbnail: rainbowThumbnail,
-      price: "13.20",
-    },
-    {
-      pattern: "blueTag",
-      itemName: "Blue Floral Tag",
-      thumbnail: blueThumbnail,
-      price: "13.20",
-    },
-    {
-      pattern: "pinkTag",
-      itemName: "Pink Floral Tag",
-      thumbnail: pinkThumbnail,
-      price: "13.20",
-    },
-    {
-      pattern: "wildAnimalTag",
-      itemName: "Wild Animal Tag",
-      thumbnail: wildAnimalThumbnail,
-      price: "13.20",
-    },
-  ];
+const tagData = [
+  {
+    pattern: "rainbowTag",
+    itemName: "Rainbow Tag",
+    thumbnail: rainbowThumbnail,
+    price: "13.20",
+    quantity: 1,
+  },
+  {
+    pattern: "blueTag",
+    itemName: "Blue Floral Tag",
+    thumbnail: blueThumbnail,
+    price: "13.20",
+    quantity: 1,
+  },
+  {
+    pattern: "pinkTag",
+    itemName: "Pink Floral Tag",
+    thumbnail: pinkThumbnail,
+    price: "13.20",
+    quantity: 1,
+  },
+  {
+    pattern: "wildAnimalTag",
+    itemName: "Wild Animal Tag",
+    thumbnail: wildAnimalThumbnail,
+    price: "13.20",
+    quantity: 1,
+  },
+];
 
+export default function Navigation(props) {
   const { cartItems } = props;
   const numberOfCartItems = cartItems.length;
   const [isCartOpen, setCartOpen] = React.useState(false);
+  const [filteredTagData, setFilteredTagData] = React.useState([]);
 
-  // increase and decrease quantity of item
-  // add an additional property to cartItem array
-  // ...spread in the exisiting array but add the property of quantity: ""
-  // ---
-  // only add items to array from the "Add to cart btn" if they aren't already in the array
+  useEffect(() => {
+    const updatedData = tagData.filter((tag) =>
+      cartItems.includes(tag.pattern)
+    );
+    setFilteredTagData(updatedData);
+  }, [cartItems]);
 
-  const filteredTagData = tagData.filter((tag) =>
-    cartItems.includes(tag.pattern)
-  );
-  console.log(filteredTagData);
+  // console.log(filteredTagData);
 
   function openCartDropdown() {
-    setCartOpen(!isCartOpen);
+    setCartOpen((prevState) => !isCartOpen);
+  }
+
+  function handleIncrement(pattern) {
+    const updatedFilteredData = filteredTagData.map((tag) => {
+      if (tag.pattern === pattern) {
+        return { ...tag, quantity: tag.quantity + 1 };
+      } else {
+        return tag;
+      }
+    });
+    setFilteredTagData(updatedFilteredData);
   }
 
   return (
@@ -68,7 +82,12 @@ export default function Navigation(props) {
           <span className="itemsInCart">{numberOfCartItems}</span>
         )}
       </span>
-      <CartDropdown isCartOpen={isCartOpen} filteredTagData={filteredTagData} />
+      <CartDropdown
+        isCartOpen={isCartOpen}
+        filteredTagData={filteredTagData}
+        // decrement={handleDecrement}
+        increment={handleIncrement}
+      />
     </nav>
   );
 }
