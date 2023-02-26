@@ -33,7 +33,12 @@ export default function CartDropdown(props) {
         </div>
         <div className="cartItemPrice">${item.price}</div>
         <div className="cartItemRemoveContainer">
-          <button className="cartItemRemove">x</button>
+          <button
+            className="cartItemRemove"
+            onClick={() => props.remove(item.pattern)}
+          >
+            x
+          </button>
         </div>
       </div>
     );

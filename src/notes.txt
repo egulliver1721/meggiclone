@@ -1,0 +1,3 @@
+Added a new bug. 
+When I remove item from cart, multiple items remove
+the cart icon purple circle isn't accurate
