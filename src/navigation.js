@@ -49,8 +49,6 @@ export default function Navigation(props) {
     setFilteredTagData(updatedData);
   }, [cartItems]);
 
-  // console.log(filteredTagData);
-
   function openCartDropdown() {
     setCartOpen((prevState) => !isCartOpen);
   }
@@ -59,6 +57,18 @@ export default function Navigation(props) {
     const updatedFilteredData = filteredTagData.map((tag) => {
       if (tag.pattern === pattern) {
         return { ...tag, quantity: tag.quantity + 1 };
+      } else {
+        return tag;
+      }
+    });
+    setFilteredTagData(updatedFilteredData);
+  }
+
+  function handleDecrement(pattern) {
+    const updatedFilteredData = filteredTagData.map((tag) => {
+      if (tag.pattern === pattern) {
+        const newQuantity = Math.max(0, tag.quantity - 1);
+        return { ...tag, quantity: newQuantity };
       } else {
         return tag;
       }
@@ -85,7 +95,7 @@ export default function Navigation(props) {
       <CartDropdown
         isCartOpen={isCartOpen}
         filteredTagData={filteredTagData}
-        // decrement={handleDecrement}
+        decrement={handleDecrement}
         increment={handleIncrement}
       />
     </nav>
