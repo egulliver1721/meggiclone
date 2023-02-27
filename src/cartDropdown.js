@@ -1,5 +1,4 @@
 import React from "react";
-import Stripe from "./stripe";
 
 export default function CartDropdown(props) {
   const itemsInCart = props.filteredTagData.map((item, index) => {
@@ -69,7 +68,6 @@ export default function CartDropdown(props) {
             <div className="cartTotalWord">Sub-total:</div>
             <div className="cartTotal">${totalRounded}</div>
           </div>
-          <Stripe />
         </div>
       ) : (
         <div className="cartEmpty">Your cart is empty</div>
