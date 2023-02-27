@@ -1,4 +1,5 @@
 import React from "react";
+import Stripe from "./stripe";
 
 export default function CartDropdown(props) {
   const itemsInCart = props.cartItems.map((item, index) => {
@@ -31,7 +32,9 @@ export default function CartDropdown(props) {
             </span>
           </div>
         </div>
-        <div className="cartItemPrice">${item.price}</div>
+        <div className="cartItemPrice">
+          ${(item.price * item.quantity).toFixed(2)}
+        </div>
         <div className="cartItemRemoveContainer">
           <button
             className="cartItemRemove"
@@ -44,16 +47,33 @@ export default function CartDropdown(props) {
     );
   });
 
+  const total = props.cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
+  const totalRounded = total.toFixed(2);
+
   return (
     <div
       className="cartDropdown"
       style={props.isCartOpen ? { display: "block" } : { display: "none" }}
     >
-      <div>{itemsInCart}</div>
-      <div className="cartTotalContainer">
-        <div className="cartTotalWord">Sub-total:</div>
-        <div className="cartTotal">$52.60</div>
-      </div>
+      {itemsInCart.length > 0 ? (
+        <div>
+          {itemsInCart}
+          <div
+            className="cartTotalContainer"
+            style={totalRounded > 0 ? { display: "grid" } : { display: "none" }}
+          >
+            <div className="cartTotalWord">Sub-total:</div>
+            <div className="cartTotal">${totalRounded}</div>
+          </div>
+          <Stripe />
+        </div>
+      ) : (
+        <div className="cartEmpty">Your cart is empty</div>
+      )}
     </div>
   );
 }
