@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function CartDropdown(props) {
-  const itemsInCart = props.filteredTagData.map((item, index) => {
+  const itemsInCart = props.cartItems.map((item, index) => {
     return (
       <div className="cartItemContainer" key={index}>
         <div className="cartItemThumbnailContainer">
