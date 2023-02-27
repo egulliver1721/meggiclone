@@ -2,7 +2,7 @@ import React from "react";
 import Stripe from "./stripe";
 
 export default function CartDropdown(props) {
-  const itemsInCart = props.cartItems.map((item, index) => {
+  const itemsInCart = props.filteredTagData.map((item, index) => {
     return (
       <div className="cartItemContainer" key={index}>
         <div className="cartItemThumbnailContainer">

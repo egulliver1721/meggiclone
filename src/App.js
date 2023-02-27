@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import heroImage from "./meggicover.jpg";
 import Header from "./header.js";
@@ -43,6 +43,7 @@ const tagData = [
 function App() {
   const [tagPattern, setTagPattern] = React.useState("rainbowTag");
   const [cartItems, setCartItems] = React.useState([]);
+  const [filteredTagData, setFilteredTagData] = React.useState([]);
 
   function onPatternClick(e) {
     e.preventDefault();
@@ -51,32 +52,32 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const exists = cartItems.some((item) => item.pattern === tagPattern);
+    const exists = cartItems.includes(tagPattern);
     if (!exists) {
-      const selectedTag = tagData.find((tag) => tag.pattern === tagPattern);
-      if (selectedTag) {
-        setCartItems([...cartItems, selectedTag]);
-      }
+      setCartItems([...cartItems, tagPattern]);
     }
   };
 
-  React.useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
+  useEffect(() => {
+    const updatedData = tagData.filter((tag) =>
+      cartItems.includes(tag.pattern)
+    );
+    setFilteredTagData(updatedData);
+  }, [cartItems, setCartItems]);
 
   function handleIncrement(pattern) {
-    const updatedCartItems = cartItems.map((tag) => {
+    const updatedFilteredData = filteredTagData.map((tag) => {
       if (tag.pattern === pattern) {
         return { ...tag, quantity: tag.quantity + 1 };
       } else {
         return tag;
       }
     });
-    setCartItems(updatedCartItems);
+    setFilteredTagData(updatedFilteredData);
   }
 
   function handleDecrement(pattern) {
-    const updatedCartItems = cartItems.map((tag) => {
+    const updatedFilteredData = filteredTagData.map((tag) => {
       if (tag.pattern === pattern) {
         const newQuantity = Math.max(1, tag.quantity - 1);
         return { ...tag, quantity: newQuantity };
@@ -84,12 +85,15 @@ function App() {
         return tag;
       }
     });
-    setCartItems(updatedCartItems);
+    setFilteredTagData(updatedFilteredData);
   }
 
   function handleRemove(pattern) {
-    const removeCartItem = cartItems.filter((tag) => tag.pattern !== pattern);
-    setCartItems(removeCartItem);
+    const removeFilteredData = filteredTagData.filter(
+      (tag) => tag.pattern !== pattern
+    );
+    setFilteredTagData(removeFilteredData);
+    setCartItems(removeFilteredData);
   }
 
   return (
@@ -104,6 +108,7 @@ function App() {
           handleDecrement={handleDecrement}
           handleIncrement={handleIncrement}
           handleRemove={handleRemove}
+          filteredTagData={filteredTagData}
         />
       </section>
       <div className="heroContainer">
