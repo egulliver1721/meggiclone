@@ -31,9 +31,7 @@ export default function CartDropdown(props) {
             </span>
           </div>
         </div>
-        <div className="cartItemPrice">
-          ${(item.price * item.quantity).toFixed(2)}
-        </div>
+        <div className="cartItemPrice">${item.price}</div>
         <div className="cartItemRemoveContainer">
           <button
             className="cartItemRemove"
@@ -45,13 +43,6 @@ export default function CartDropdown(props) {
       </div>
     );
   });
-
-  const total = props.cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
-
-  const totalRounded = total.toFixed(2);
 
   return (
     <div
